@@ -1,4 +1,4 @@
-package com.ggx.leetcode.easy;
+package com.ggx.leetcode.easy.binarysearch;
 
 public class Sqrt {
 

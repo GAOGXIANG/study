@@ -40,6 +40,9 @@ public class LongestPalindromic {
 
     private int lo, maxLen;
 
+    /**
+     * 理论基础是动态规划
+     */
     public String longestPalindromeF(String s) {
         int len = s.length();
         if (len < 2)
