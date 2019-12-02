@@ -10,6 +10,8 @@ package com.ggx.datastructure.sort;
  * 节点i的父节点的位置是:(i-1)/2
  * 特点:
  * 1、时间复杂度：O(nlogn)  2、空间复杂度：O(1)  3、非稳定排序  4、原地排序
+ * 适用场景:
+ * 求数组第k大的值
  */
 public class HeapSort {
 
