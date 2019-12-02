@@ -45,6 +45,7 @@ public class BinaryHeap <AnyType extends Comparable<? super AnyType>>{
     //插入元素
     public void insert(AnyType x){
         if(currentSize == array.length - 1){
+
 //            enlargeArray(array.length*2 + 1);
         }
         int hole = ++currentSize;
