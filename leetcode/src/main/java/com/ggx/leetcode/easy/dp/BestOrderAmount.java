@@ -18,8 +18,9 @@ public class BestOrderAmount {
                 if(orderAmountMap.containsKey(j)){
                     continue;
                 }
-                if(orderAmountMap.containsKey(j - orders[i])){
-                    List<Integer> list = orderAmountMap.get(j - orders[i]);
+                int prevIndex = j - orders[i];
+                if(orderAmountMap.containsKey(prevIndex)){
+                    List<Integer> list = new ArrayList<>(orderAmountMap.get(prevIndex));
                     list.add(orders[i]);
                     orderAmountMap.put(j, list);
                 }
