@@ -1,9 +1,7 @@
 package com.ggx.leetcode.medium.array;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * https://leetcode-cn.com/problems/permutations/?utm_source=LCUS&utm_medium=ip_redirect_q_uns&utm_campaign=transfer2china
