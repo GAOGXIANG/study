@@ -1,6 +1,7 @@
-package com.ggx.leetcode.medium;
+package com.ggx.leetcode.medium.string;
 
 /**
+ * 5.https://leetcode-cn.com/problems/longest-palindromic-substring/
  * 最大回环子字符串
  */
 public class LongestPalindromic {
@@ -36,7 +37,7 @@ public class LongestPalindromic {
         return true;
     }
 
-    /**===============================================牛逼的答案===================================================*/
+    /**===============================================动态规划===================================================*/
 
     private int lo, maxLen;
 

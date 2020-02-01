@@ -1,4 +1,4 @@
-package com.ggx.leetcode.medium;
+package com.ggx.leetcode.medium.string;
 
 public class LongestSubstring {
 

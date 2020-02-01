@@ -8,6 +8,7 @@
     <artifactId>study</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>concurrent</module>
         <module>datastructure</module>
         <module>leetcode</module>
     </modules>
