@@ -11,6 +11,7 @@
         <module>concurrent</module>
         <module>datastructure</module>
         <module>leetcode</module>
+        <module>grpc-test</module>
     </modules>
     <packaging>pom</packaging>
 
