@@ -1,7 +1,5 @@
 package com.ggx.leetcode.hard.tree;
 
-import com.ggx.leetcode.medium.tree.TreeNode;
-
 /**
  * https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/
  *
