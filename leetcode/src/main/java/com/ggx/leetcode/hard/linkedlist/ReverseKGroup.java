@@ -33,11 +33,74 @@ import java.util.ArrayDeque;
  */
 public class ReverseKGroup {
 
-    public ListNode reverseKGroup(ListNode head, int k) {
-        ListNode prev = new ListNode(-1);
-        ArrayDeque<ListNode> nodeQueue = new ArrayDeque<>(k);
-
-        
-        return prev.next;
+    public static ListNode reverseKGroup(ListNode head, int k) {
+        ListNode preHead = new ListNode(-1);
+        ListNode prev = preHead;
+        ArrayDeque<ListNode> deque = new ArrayDeque<>(k);
+        while(head != null){
+            deque.add(head);
+            head = head.next;
+            if(deque.size() == k){
+                while(!deque.isEmpty()){
+                    prev.next = deque.pollLast();
+                    prev = prev.next;
+                    prev.next = null;
+                }
+            }
+        }
+        while(!deque.isEmpty()){
+            prev.next = deque.pop();
+            prev = prev.next;
+            prev.next = null;
+        }
+        return preHead.next;
     }
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        ListNode node1 = new ListNode(2);
+        head.next = node1;
+//        ListNode node2 = new ListNode(3);
+//        node1.next = node2;
+//        ListNode node3 = new ListNode(4);
+//        node2.next = node3;
+//        ListNode node4 = new ListNode(5);
+//        node3.next = node4;
+        reverseKGroup(head, 2);
+    }
+
+    //leetcode精选答案，速度更快
+//    public ListNode reverseKGroup(ListNode head, int k) {
+//        ListNode dummy = new ListNode(0);
+//        dummy.next = head;
+//
+//        ListNode pre = dummy;
+//        ListNode end = dummy;
+//
+//        while (end.next != null) {
+//            for (int i = 0; i < k && end != null; i++) end = end.next;
+//            if (end == null) break;
+//            ListNode start = pre.next;
+//            ListNode next = end.next;
+//            end.next = null;
+//            pre.next = reverse(start);
+//            start.next = next;
+//            pre = start;
+//
+//            end = pre;
+//        }
+//        return dummy.next;
+//    }
+//
+//    private ListNode reverse(ListNode head) {
+//        ListNode pre = null;
+//        ListNode curr = head;
+//        while (curr != null) {
+//            ListNode next = curr.next;
+//            curr.next = pre;
+//            pre = curr;
+//            curr = next;
+//        }
+//        return pre;
+//    }
 }

@@ -29,7 +29,6 @@ public class Parenthesis {
      * 回溯算法
      */
     private static void backTrack(List<String> result, int open, int close, String tmp, int n) {
-
         if(tmp.length() == n*2){
             result.add(tmp);
             return;
