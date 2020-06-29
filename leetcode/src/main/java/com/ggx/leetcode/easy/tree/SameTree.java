@@ -58,17 +58,5 @@ public class SameTree {
         if (p.val != q.val) return false;
         return isSameTreeRecursive(p.right, q.right) &&
                 isSameTreeRecursive(p.left, q.left);
-
-    }
-}
-
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
     }
 }
