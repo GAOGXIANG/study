@@ -1,5 +1,7 @@
 package com.ggx.leetcode.medium.tree;
 
+import com.ggx.leetcode.easy.tree.TreeNode;
+
 import java.util.Stack;
 
 /**

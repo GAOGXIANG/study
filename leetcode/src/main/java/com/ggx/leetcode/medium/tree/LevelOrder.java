@@ -24,6 +24,8 @@ package com.ggx.leetcode.medium.tree;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/binary-tree-level-order-traversal
  */
+import com.ggx.leetcode.easy.tree.TreeNode;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
