@@ -22,10 +22,10 @@ public class QuickSort {
         }
         int i = head, j = tail, pivot = array[(head + tail) / 2];
         while (i <= j) {
-            while (array[i] < array[pivot]) {
+            while (array[i] < pivot) {
                 ++i;
             }
-            while (array[j] > array[pivot]) {
+            while (array[j] > pivot) {
                 --j;
             }
             if (i < j) {
