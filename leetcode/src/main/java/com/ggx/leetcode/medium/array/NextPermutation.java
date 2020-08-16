@@ -48,7 +48,10 @@ public class NextPermutation {
     }
 
     public static void main(String[] args) {
-        int[] nums = {5,1,1};
+        int[] nums = {1,2,3,4,5};
         nextPermutation(nums);
+        for(int i : nums){
+            System.out.println(i);
+        }
     }
 }
