@@ -1,5 +1,7 @@
 package com.ggx.bytedance.array;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -38,7 +40,7 @@ import java.util.Map;
  */
 public class FindCircleNum {
 
-    public int findCircleNum(int[][] M) {
+    public static int findCircleNum(int[][] M) {
         FriendshipUnion union = new FriendshipUnion();
         for(int i = 0; i < M.length; i++){
             for(int j = 0; j < M[i].length; j++){
@@ -57,6 +59,15 @@ public class FindCircleNum {
         }
         return set.size();
     }
+
+    public static void main(String[] args) {
+        int[][] M = new int[4][4];
+        M[0] = new int[]{1, 0, 0, 1};
+        M[1] = new int[]{0, 1, 1, 0};
+        M[2] = new int[]{0, 1, 1, 1};
+        M[3] = new int[]{1, 0, 1, 1};
+        System.out.println(findCircleNum(M));
+    }
 }
 
 class FriendshipUnion{
@@ -68,12 +79,8 @@ class FriendshipUnion{
     }
 
     void union(int i, int j){
-        if(i == j){
-            friendMap.put(i,j);
-        }
         int rootI = find(i), rootJ = find(j);
         int root = Math.min(rootI, rootJ);
-        friendMap.put(i, root);
         friendMap.put(j, root);
     }
 
