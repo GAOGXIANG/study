@@ -9,12 +9,22 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>leetcode</artifactId>
+    <artifactId>springboot-study</artifactId>
+
     <dependencies>
         <dependency>
-            <groupId>io.com.ggx.study.springboot.netty</groupId>
-            <artifactId>com.ggx.study.springboot.netty-all</artifactId>
-            <version>4.1.50.Final</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.lettuce</groupId>
+            <artifactId>lettuce-core</artifactId>
+            <version>5.3.3.RELEASE</version>
         </dependency>
     </dependencies>
 

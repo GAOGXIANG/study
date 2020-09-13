@@ -68,9 +68,6 @@ class FriendshipUnion{
     }
 
     void union(int i, int j){
-        if(i == j){
-            friendMap.put(i,j);
-        }
         int rootI = find(i), rootJ = find(j);
         int root = Math.min(rootI, rootJ);
         friendMap.put(i, root);
