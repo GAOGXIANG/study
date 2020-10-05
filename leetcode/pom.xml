@@ -12,8 +12,8 @@
     <artifactId>leetcode</artifactId>
     <dependencies>
         <dependency>
-            <groupId>io.com.ggx.study.springboot.netty</groupId>
-            <artifactId>com.ggx.study.springboot.netty-all</artifactId>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
             <version>4.1.50.Final</version>
         </dependency>
     </dependencies>
