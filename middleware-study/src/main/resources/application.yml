@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+spring:
+  rabbitmq:
+    name: springboot-rabbitmq-consumer
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+        prefetch: 8
+        concurrency: 2
