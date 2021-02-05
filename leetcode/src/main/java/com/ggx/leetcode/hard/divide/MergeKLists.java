@@ -32,7 +32,7 @@ public class MergeKLists {
     private ListNode merge(ListNode[] lists, int l, int r) {
         if (l == r) return lists[l];
         if (l > r) return null;
-        int mid = l + (r - l) >> 1;
+        int mid = l + ((r - l) >> 1);
         return mergeTwoList(merge(lists, l, mid), merge(lists, mid + 1, r));
     }
 

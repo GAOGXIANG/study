@@ -11,19 +11,26 @@
         <module>concurrent</module>
         <module>datastructure</module>
         <module>leetcode</module>
+        <module>springboot-study</module>
         <module>grpc-test</module>
+        <module>middleware-study</module>
     </modules>
     <packaging>pom</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.4.RELEASE</version>
+        <version>2.3.3.RELEASE</version>
     </parent>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.0-jre</version>
         </dependency>
     </dependencies>
     <!--<repositories>

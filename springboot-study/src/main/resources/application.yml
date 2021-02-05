@@ -1,0 +1,37 @@
+spring:
+  redis:
+    cluster:
+      nodes: 127.0.0.1:6380,127.0.0.1:6383
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/db_mendian?useUnicode=true&characterEncoding=utf8&useAffectedRows=true&allowMultiQueries=true&useSSL=false
+    username: root
+    password: gozapdev
+    driver-class-name: com.mysql.jdbc.Driver
+    initial-size: 3
+    max-active: 50
+    min-idle: 1
+    validation-query: SELECT 1
+    test-on-borrow: true
+    time-between-eviction-runs-millis: 600000
+    min-evictable-idle-time-millis: 3600000
+  rabbitmq:
+    name: springboot-rabbitmq-server
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+        prefetch: 8
+        concurrency: 3
+mybatis:
+  type-aliases-package: com.ggx.springboot.study.mybatis.bean
+  #mapper-locations: classpath*:com/ggx/springboot/study/mybatis/*Mapper.xml
+  config-location: classpath:mybatis-config.xml
+server:
+  port: 8080
+  servlet:
+    context-path: /
