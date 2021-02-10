@@ -4,33 +4,56 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *一堆序号比如01，011，0111，02，021，0212，02111等，代表层级结构
- * 如何找出最底层的序号？比如上面的0111，0212和02111
+ * 前序树的实现
  */
 public class TrieTree {
 
-    private TrieTreeNode root = new TrieTreeNode();
+    private TrieTreeNode root;
 
-    public void add(String[] array){
-        for(String str : array){
-            char[] chars = str.toCharArray();
-            TrieTreeNode node = root;
-            for(char c : chars){
-                if(!node.containsKey(c)){
-                    TrieTreeNode treeNode = new TrieTreeNode();
-                    treeNode.val = c - '0';
-                    node.nodes[treeNode.val] = treeNode;
-                    node.childCount++;
-                }
-                node = node.get(c);
-            }
-        }
+    public TrieTree(){
+        root = new TrieTreeNode();
     }
 
-    public List<String> getLeafPath(){
-        List<String> result = new ArrayList<>();
-        recursiveSearch(root, "", result);
-        return result;
+    public void insert(String word){
+        char[] chars = word.toCharArray();
+        TrieTreeNode node = root;
+        for(char c : chars){
+            if(!node.containsKey(c)){
+                TrieTreeNode treeNode = new TrieTreeNode();
+                treeNode.val = c - '0';
+                node.nodes[treeNode.val] = treeNode;
+                node.childCount++;
+            }
+            node = node.get(c);
+        }
+        node.end = true;
+    }
+
+    /** Returns if the word is in the trie. */
+    public boolean search(String word) {
+        return search(word, true);
+    }
+
+    private boolean search(String word, boolean isWord){
+        boolean find = true;
+        TrieTreeNode node = root;
+        for(int i = 0; i < word.length(); i++){
+            if(node.containsKey(word.charAt(i))){
+                node = node.get(word.charAt(i));
+            }else{
+                find = false;
+                break;
+            }
+        }
+        if(find && isWord){
+            return node.end;
+        }
+        return find;
+    }
+
+    /** Returns if there is any word in the trie that starts with the given prefix. */
+    public boolean startsWith(String prefix) {
+        return search(prefix, false);
     }
 
     /**
@@ -48,11 +71,18 @@ public class TrieTree {
         }
     }
 
+    public List<String> getLeafPath(){
+        List<String> result = new ArrayList<>();
+        recursiveSearch(root, "", result);
+        return result;
+    }
+
 
     class TrieTreeNode{
         TrieTreeNode[] nodes;
         int val;
         int childCount = 0;
+        boolean end = false;
 
         public TrieTreeNode(){
             nodes = new TrieTreeNode[10];
@@ -67,13 +97,13 @@ public class TrieTree {
         }
     }
 
-    public static void main(String[] args) {
-        String[] strings = new String[]{"01","011","0111","02","0211", "0212", "02111"};
-        TrieTree trieTree = new TrieTree();
-        trieTree.add(strings);
-        List<String> result = trieTree.getLeafPath();
-        for(String  str : result){
-            System.out.println(str);
-        }
-    }
+//    public static void main(String[] args) {
+//        String[] strings = new String[]{"01","011","0111","02","0211", "0212", "02111"};
+//        TrieTree trieTree = new TrieTree();
+//        trieTree.add(strings);
+//        List<String> result = trieTree.getLeafPath();
+//        for(String  str : result){
+//            System.out.println(str);
+//        }
+//    }
 }
