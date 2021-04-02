@@ -66,4 +66,61 @@ public class LongestPalindromic {
             maxLen = k - j - 1;
         }
     }
+
+    /**=================================================Manacher===============================================*/
+
+    /**
+     * 马拉车算法
+     */
+    public static String longestPalindromeM(String s){
+        if(s == null || s.length() == 0){
+            return "";
+        }
+        String newStr = preProcess(s, '#');
+        int[] p = new int[newStr.length()];
+        int maxRight = 0, center = 0, newStrLength = newStr.length();
+        int start = 0, maxLen = 1;
+        int left = 0, right = 0;
+        for(int i = 0; i < newStrLength; i++){
+            if(i < maxRight){
+                int mirror = center*2 - i;
+                p[i] = Math.min(maxRight - i, p[mirror]);
+            }
+            left = i - p[i] - 1;
+            right = i + p[i] + 1;
+            while(left >= 0 && right < newStrLength && newStr.charAt(left) == newStr.charAt(right)){
+                p[i] = ++p[i];
+                left--;
+                right++;
+            }
+            if(p[i] + i > maxRight){
+                maxRight = p[i] + i;
+                center = i;
+            }
+            if(p[i] > maxLen){
+                maxLen = p[i];
+                start = (i - p[i])/2;
+            }
+        }
+        return s.substring(start, start + maxLen);
+    }
+
+    /**
+     * 预处理字符串
+     * boundaries在字符串中不能出现
+     */
+    private static String preProcess(String s, char boundaries) {
+        StringBuilder result = new StringBuilder();
+        for(int i = 0; i < s.length(); i++){
+            result.append(boundaries).append(s.charAt(i));
+        }
+        result.append(boundaries);
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        String s = "abcacbd";
+        System.out.println(longestPalindromeM(s));
+    }
+
 }
